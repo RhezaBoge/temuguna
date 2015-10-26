@@ -11,6 +11,8 @@ return array(
     'CreateTableProject' => $baseDir . '/database/migrations/2015_10_26_011204_create_table_project.php',
     'CreateTableProjectCategory' => $baseDir . '/database/migrations/2015_10_26_013610_create_table_project_category.php',
     'CreateTableProjectIssue' => $baseDir . '/database/migrations/2015_10_26_013624_create_table_project_issue.php',
+    'CreateTableUsersDetail' => $baseDir . '/database/migrations/2015_10_26_031630_create_table_users_detail.php',
+    'CreateTableUsersGroup' => $baseDir . '/database/migrations/2015_10_26_030751_create_table_users_group.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

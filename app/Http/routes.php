@@ -19,17 +19,15 @@ Route::get('home', 'HomeController@index');
 //admin
 	//dashboard
 		Route::resource('admin/dashboard', 'Admin\dashboard\controller_admin_dashboard');
-	//database
-		Route::resource('admin/banned-report', 'Admin\database\controller_banned_report');
-		Route::resource('admin/content', 'Admin\database\controller_content');
-		Route::resource('admin/content-category', 'Admin\database\controller_content_category');
-		Route::resource('admin/media-manager', 'Admin\database\controller_media_manager');
-		Route::resource('admin/schedule', 'Admin\database\controller_schedule');
-		Route::resource('admin/schedule-type', 'Admin\database\controller_schedule_type');
-		Route::resource('admin/users', 'Admin\database\controller_users');
+	//Tables
+		Route::resource('admin/agency', 'Admin\database\controller_agency');
+		Route::resource('admin/media-manager', 'Admin\database\controller_media-manager');
+		Route::resource('admin/project', 'Admin\database\controller_project');
+		Route::resource('admin/project-category', 'Admin\database\controller_project-category');
+		Route::resource('admin/project-issue', 'Admin\database\controller_project-issue');
+		Route::resource('admin/users-detail', 'Admin\database\controller_users-detail');
 		Route::resource('admin/users-group', 'Admin\database\controller_users_group');
-		Route::resource('admin/users-status', 'Admin\database\controller_users_status');
-
+		
 
 
 //login
@@ -48,16 +46,3 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
-//test API register
-Route::group(array('prefix'=>'api/v1'), function(){
-  
-  //Example API
-  Route::get('signup', array('as'=>'signup','uses'=>'Api\controller_signup@index'));
-  Route::get('login', array('as'=>'login','uses'=>'Api\controller_login@index'));
-  Route::get('get-roles', array('uses'=>'Api\roles@findAll'));
-  Route::get('post-ban-report', array('uses'=>'Api\post_ban_report@index'));
-  Route::get('post-following', array('uses'=>'Api\post_following@index'));
-  Route::get('set-schedule', array('uses'=>'Api\set_schedule@index'));
-  Route::get('settings-profile', array('uses'=>'Api\settings_profile@index'));
-});

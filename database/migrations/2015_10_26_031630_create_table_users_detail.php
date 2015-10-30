@@ -17,6 +17,7 @@ class CreateTableUsersDetail extends Migration
             $table->integer('users_id');
             $table->integer('users_group_id');
             $table->char('users_telp',15);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\table_media_manager;
+use App\Library\authentication;
+use Auth;
+use DB;
 
 class controller_media_manager extends Controller
 {
@@ -20,6 +23,8 @@ class controller_media_manager extends Controller
         
          $data=array(
             'media-manager' => table_media_manager::latest('media_manager_id')->paginate(10),
+            'menu'   => 'tables',
+            'submenu'   => 'mediamanager',
          );
 
 
@@ -46,7 +51,7 @@ class controller_media_manager extends Controller
     {
        
         table_media_manager::create(Request::all());
-        return redirect('admin/media-manager')->with('success', 'Data berhasil ditambahkan!');
+        return redirect('admin/media-manager')->with('success', 'Data successfully added!');
     }
 
     /**
@@ -59,6 +64,8 @@ class controller_media_manager extends Controller
     {
         $data = array(
                 'media-manager' => table_media_manager::where('media_manager_id', '=', $id)->get(),
+                'menu'   => 'tables',
+                'submenu'   => 'mediamanager',
          );     
         return view('admin.database.media-manager.media-manager-show', compact('data'));
     }
@@ -74,6 +81,8 @@ class controller_media_manager extends Controller
            
          $data = array(
                 'media-manager' => table_media_manager::where('media_manager_id', '=', $id)->get(),
+                'menu'   => 'tables',
+                'submenu'   => 'mediamanager',
          );     
         return view('admin.database.media-manager.media-manager-edit', compact('data'));
     }
@@ -91,7 +100,7 @@ class controller_media_manager extends Controller
         $dataUpdate = Request::all();
         $data = table_media_manager::find($id);
         $data->update($dataUpdate);
-        return redirect('admin/media-manager')->with('message', 'Data berhasil dirubah!');
+        return redirect('admin/media-manager')->with('warning', 'Data successfully changed!');
     
     }
 
@@ -104,7 +113,7 @@ class controller_media_manager extends Controller
     public function destroy($id)
     {
         table_media_manager::find($id)->delete();
-        return redirect('admin/media-manager')->with('warning', 'Data berhasil dihapus!');
+        return redirect('admin/media-manager')->with('warning', 'Data successfully removed!');
     
     }
 }

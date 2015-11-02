@@ -17,13 +17,14 @@ class controller_admin_dashboard extends Controller
     public function index()
     {
         
-         // $data=array(
-         //    'banned_report' => table_banned_report::latest('banned_report_id')->get(),
-         // );
+         $data=array(
+            'menu'   => 'home',
+            'submenu'   => null
+         );
 
 
         //return view('admin.database.banned-report.banned-report-index', compact('data'));
-        return view('admin/dashboard/dashboard');
+        return view('admin/dashboard/dashboard', compact('data'));
     }
 
     /**

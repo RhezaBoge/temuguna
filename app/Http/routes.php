@@ -21,11 +21,11 @@ Route::get('home', 'HomeController@index');
 		Route::resource('admin/dashboard', 'Admin\dashboard\controller_admin_dashboard');
 	//Tables
 		Route::resource('admin/agency', 'Admin\database\controller_agency');
-		Route::resource('admin/media-manager', 'Admin\database\controller_media-manager');
-		Route::resource('admin/project', 'Admin\database\controller_project');
-		Route::resource('admin/project-category', 'Admin\database\controller_project-category');
-		Route::resource('admin/project-issue', 'Admin\database\controller_project-issue');
-		Route::resource('admin/users-detail', 'Admin\database\controller_users-detail');
+		Route::resource('admin/media-manager', 'Admin\database\controller_media_manager');
+		
+		Route::resource('admin/project-category', 'Admin\database\controller_project_category');
+		Route::resource('admin/project-issue', 'Admin\database\controller_project_issue');
+		Route::resource('admin/users-detail', 'Admin\database\controller_users_detail');
 		Route::resource('admin/users-group', 'Admin\database\controller_users_group');
 		
 

@@ -14,7 +14,7 @@ class CreateTableProjectCategory extends Migration
     {
         Schema::create('table_project_category', function (Blueprint $table) {
             $table->increments('project_category_id');
-            $table->char('project_ctegory_name',255);
+            $table->char('project_category_name',255);
             $table->text('project_category_description');
             $table->softDeletes();
             $table->timestamps();

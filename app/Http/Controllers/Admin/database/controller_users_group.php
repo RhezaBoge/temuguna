@@ -1,11 +1,15 @@
 <?php
 
+
 namespace App\Http\Controllers\Admin\database;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\table_users_group;
+use App\Library\authentication;
+use Auth;
+use DB;
 
 class controller_users_group extends Controller
 {
@@ -18,7 +22,9 @@ class controller_users_group extends Controller
     {
         
          $data=array(
-            'users-group' => table_users_group::latest('users_group_id')->paginate(2),
+            'users-group' => table_users_group::latest('users_group_id')->paginate(10),
+            'menu'   => 'tables',
+            'submenu'   => 'usersgroup'
          );
 
 
@@ -45,7 +51,7 @@ class controller_users_group extends Controller
     {
        
         table_users_group::create(Request::all());
-        return redirect('admin/users-group')->with('success', 'Data berhasil ditambahkan!');
+        return redirect('admin/users-group')->with('success', 'Data successfully added!');
     }
 
     /**
@@ -58,6 +64,8 @@ class controller_users_group extends Controller
     {
         $data = array(
                 'users-group' => table_users_group::where('users_group_id', '=', $id)->get(),
+                'menu'   => 'tables',
+                'submenu'   => 'usersgroup'
          );     
         return view('admin.database.users-group.users-group-show', compact('data'));
     }
@@ -73,6 +81,8 @@ class controller_users_group extends Controller
            
          $data = array(
                 'users-group' => table_users_group::where('users_group_id', '=', $id)->get(),
+                'menu'   => 'tables',
+                'submenu'   => 'usersgroup'
          );     
         return view('admin.database.users-group.users-group-edit', compact('data'));
     }
@@ -90,7 +100,7 @@ class controller_users_group extends Controller
         $dataUpdate = Request::all();
         $data = table_users_group::find($id);
         $data->update($dataUpdate);
-        return redirect('admin/users-group')->with('message', 'Data berhasil dirubah!');
+        return redirect('admin/users-group')->with('message', 'Data successfully changed!');
     
     }
 
@@ -103,7 +113,7 @@ class controller_users_group extends Controller
     public function destroy($id)
     {
         table_users_group::find($id)->delete();
-        return redirect('admin/users-group')->with('warning', 'Data berhasil dihapus!');
+        return redirect('admin/users-group')->with('warning', 'Data successfully removed!');
     
     }
 }

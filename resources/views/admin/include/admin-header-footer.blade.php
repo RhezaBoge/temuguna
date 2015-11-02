@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>TemuGuna</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -22,6 +22,7 @@
     <link href="{{ URL::asset('public/admin-template/css/icheck/flat/green.css') }}" rel="stylesheet" />
 
     <script src="{{ URL::asset('public/admin-template/js/jquery.min.js') }}"></script>
+    
 </head>
 
 <body class="nav-md">
@@ -61,25 +62,16 @@
                         <div class="menu_section">
                             <h3>Administrator</h3>
                             <ul class="nav side-menu">
-                                <li class="vn active"><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                <li <?PHP if($data['menu'] == "home") echo "class='vn active'"?>><a href="{{ url('admin/dashboard') }}"><i class="fa fa-home"></i> Home </a></li>
+                                <li <?PHP if($data['menu'] == "tables") echo "class='vn active'"?>><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li class="current-page"><a href="index.html" class="active">Dashboard</a>
-                                        </li>
-                                        <li><a href="#">Dashboard2</a>
-                                        </li>
-                                        <li><a href="#">Dashboard3</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="{{ url('admin/agency') }}">Agency</a></li>
-                                        <li><a href="{{ url('admin/media-manager') }}">Media Manager</a></li>
-                                        <li><a href="{{ url('admin/project') }}">Project</a></li>
-                                        <li><a href="{{ url('admin/project-category') }}">Project Category</a></li>
-                                        <li><a href="{{ url('admin/project-issue') }}">Project Issue</a></li>
-                                        <li><a href="{{ url('admin/users-detail') }}">Users Detail</a></li>
-                                        <li><a href="{{ url('admin/users-group') }}">Users Group</a></li>
+                                        <li <?PHP if($data['submenu'] == "agency") echo 'class="current-page"'?>><a href="{{ url('admin/agency') }}">Agency</a></li>
+                                        <li <?PHP if($data['submenu'] == "mediamanager") echo 'class="current-page"'?>><a href="{{ url('admin/media-manager') }}">Media Manager</a></li>
+                                        <li <?PHP if($data['submenu'] == "project") echo 'class="current-page"'?>><a href="{{ url('admin/project') }}">Project</a></li>
+                                        <li <?PHP if($data['submenu'] == "projectcategory") echo 'class="current-page"'?>><a href="{{ url('admin/project-category') }}">Project Category</a></li>
+                                        <li <?PHP if($data['submenu'] == "projectissue") echo 'class="current-page"'?>><a href="{{ url('admin/project-issue') }}">Project Issue</a></li>
+                                        <li <?PHP if($data['submenu'] == "usersdetail") echo 'class="current-page"'?>><a href="{{ url('admin/users-detail') }}">Users Detail</a></li>
+                                        <li <?PHP if($data['submenu'] == "usersgroup") echo 'class="current-page"'?>><a href="{{ url('admin/users-group') }}">Users Group</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
@@ -169,7 +161,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
+                                    <img src="images/img.jpg" alt="">Jokowi
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -269,7 +261,12 @@
             </div>
             <!-- /top navigation -->
 
+            <!-- page content div at include-->
+            <div class="right_col" role="main">
+            <div class="">
 
+
+            
 
 
 
@@ -280,23 +277,23 @@
 
 
 
-
+            </div>
         <!-- footer content -->
                 <footer>
                     <div class="">
-                        <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
-                            <span class="lead"> <i class="fa fa-paw"></i> Gentelella Alela!</span>
+                        <p class="pull-right">TemuGuna! a Solution to make your dreams comes True. |
+                            <span class="lead"> <i class="fa fa-paw"></i> TemuGuna!</span>
                         </p>
                     </div>
-                    <div class="clearfix"></div>
+                   <div class="clearfix"></div>
                 </footer>
                 <!-- /footer content -->
 
             </div>
-            <!-- /page content -->
+        <!-- /page content -->
         </div>
-
     </div>
+    
 
     <div id="custom_notifications" class="custom-notifications dsp_none">
         <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
